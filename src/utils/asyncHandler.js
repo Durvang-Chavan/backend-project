@@ -1,6 +1,6 @@
 //second way of the 2 to write the wrapper so that we don't have to write it again and again
 const asyncHandler = (requestHandler) => {
-  (req, res, next) => {
+   return (req, res, next) => {
     Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
   };
 };

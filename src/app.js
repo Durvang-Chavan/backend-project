@@ -14,4 +14,10 @@ app.use(express.urlencoded({extended: true, limit:"16kb"})); // to configure url
 app.use(express.static("public")); // to store img,png,favicon etc in the public folder
 app.use(cookieParser()) // used to access and set cookies on the browser of the user
 
+
+//routes import
+import userRouter from "./routes/user.routes.js"
+
+//routes declaration
+app.use("/api/v1/users", userRouter);
 export { app }
