@@ -50,6 +50,7 @@ const registUser = asyncHandler(async (req, res) => {
 
   //create entry in database using user object
   const user = await User.create({
+    email,
     fullname,
     username: username.toLowerCase(),
     password,

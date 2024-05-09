@@ -13,11 +13,12 @@ const userSchema = new Schema({
     },
     email: {
         type: String,
-        required: true, 
+        // required: true,
         unique: true,
         lowercase: true,
         trim: true,
     },
+    
     fullname: {
         type: String,
         required: true, 
@@ -38,7 +39,7 @@ const userSchema = new Schema({
         }
     ],
     password: {
-        type: String,
+        type: String,//http://localhost:8000/api/v1/users/register,
         required: [true, "Password is required"]
     },
     refreshToken: {
