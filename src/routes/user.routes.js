@@ -1,6 +1,7 @@
 import { Router } from "express"
-import { registUser } from "../controllers/user.controller.js";
-import { upload } from "../middleware/multer.middleware.js";
+import { logOutUser, loginUser,registUser } from "../controllers/user.controller.js";
+import {  upload } from "../middleware/multer.middleware.js";
+import { verifyJWT } from "../middleware/auth.middleware.js";
 
 const router = Router()
 //injecting multer middleware in routes for file upload
@@ -17,4 +18,9 @@ router.route("/register").post(
     ]),
     registUser
 );
+
+router.route("/login").post(loginUser)
+
+//secured routes
+router.route("/logout").post(verifyJWT, logOutUser)
 export default router
